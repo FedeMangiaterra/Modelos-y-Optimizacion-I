@@ -1,0 +1,17 @@
+Impresion del problema
+
+Inicialmente no tenia una idea muy clara de como encarar el problema, porque era la primera vez que me enfrentaba a uno de ese estilo. Por esta misma razón no estaba seguro de qué tan fácil o difícil podía ser
+
+Ideas de como lo van a intentar resolver
+
+Antes de empezar a buscar distintas soluciones al problema en si, tuve que encontrar una buena forma de almacenar los distintos datos necesarios para la resolucion. Para esto, recorriendo el archivo de texto linea por linea me armo dos diccionarios cuyas claves son los numeros de prenda: uno para guardar las prendas incompatibles para cada una, y otro para guardar el tiempo de lavado.
+Tardé bastante en pensar una solución, pero considero que la primera que encontre es bastante buena.
+Teniendo en cuenta que el tiempo de lavado de un grupo de prendas es el de la prenda que más tarda, ordeno el diccionario de tiempos de menor a mayor, y lo empiezo a recorrer. Para cada prenda, busco entre las prendas compatibles con la misma para lavarlas juntas, priorizando armar conjuntos con elementos cuyos tiempos de lavado sean mayores, y actualizando la lista de incompatibilidades a medida que agrego mas prendas al grupo. 
+Se agrupan prendas con tiempos de lavado altos porque el diccionario esta ordenado de mayor a menor, entonces al recorrerlo las primeras prendas en agregarse al grupo seran las de mayor tiempo de lavado. Y la razón por la que se busca eso es por el hecho de que se toma el tiempo de lavado de la prenda que mas tarde. Entonces, por ejemplo, conviene mas lavar juntas dos prendas de 10 y 9 minutos y por otro lado una de 3 minutos (tiempo total de lavados 13 minutos), que lavar la de 10 junto con la de 3 y la de 9 por separado (tiempo de lavado 19 minutos)
+Entonces, con este algoritmo, se intenta realizar la menor cantidad de lavados "largos", aunque no prueba diferentes combinaciones por lo que no asegura que el resultado sea el mejor de todos
+Por el lado de la complejidad temporal, al usar diccionarios y sets se reduce el tiempo con respecto a una implementacion que usara listas, por ejemplo, ya que se realizan muchos accesos e inserciones.
+Con los conocimientos que tengo actualmente, solo se me ocurre una forma de mejorar el resultado, seria mucho mas costosa y no sabría como implementarla, aunque el resultado sería mejor. Consistiría en ir probando todas las combinaciones de lavados para llegar a la mejor posible. Para ahorrar tiempo se podría hacer que se corte el cálculo cuando el tiempo total supera al maximo actual, y se pase directamente a una nueva combinación. Igualmente este método es demasiado costoso y por eso no serviría con muchas prendas.
+
+Comentarios finales de la entrega
+
+Siendo la primera entrega, busqué una solución basada en mis conocimientos previos, sin investigar sobre los métodos de optimización posibles. 
