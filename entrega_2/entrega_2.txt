@@ -10,5 +10,8 @@ Ideas de como lo van a intentar resolver
 Primero intenté ver que tan bien funcionaba mi solución anterior con este nuevo problema, y encontré un bug que se me había pasado
 en la primera entrega porque ahí todas las prendas tenían alguna restricción, y en este caso no. Por lo uqe tuve que hacerle un pequeño
 cambio al código para que en el diccionario de incompatibilidades aparezcan todas las prendas, y el valor sea un set vacio en aquellas
-que no tienen incompatibilidades. Después de arreglar el bug ejecuté el programa y el tiempo total fue de 281, en ese momento fue el segundo
-mejor del ranking de la página.
+que no tienen incompatibilidades. Después de arreglar el bug ejecuté el programa y el tiempo total fue de 281, en ese momento hubiera sido el segundo
+mejor del ranking de la página. Pero al quererlo subir ahi me di cuenta de otro cambio con respecto a la primera entrega: En esa, las restricciones
+se indicaban para las dos prendas, por ejemplo si 1 era incompatible con 2 habia una linea del archivo que decia "e 1 2" y otra que decia "e 2 1".
+Como mi código tenía en cuenta eso, la solución que me estaba dando no era válida, y una vez arreglado ese bug tomó mucho mas tiempo para lavar
+todas las prendas: 493.

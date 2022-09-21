@@ -14,6 +14,7 @@ def obtener_datos():
                 restricciones[str(i)] = set()
         elif (terminos[0] == "e"):
             restricciones[terminos[1]].add(terminos[2])
+            restricciones[terminos[2]].add(terminos[1])
         elif (terminos[0] == "n"):
             tiempos[terminos[1]] = int(terminos[2])
         linea = f.readline().strip('\n')
