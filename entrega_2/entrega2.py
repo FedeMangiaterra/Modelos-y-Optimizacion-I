@@ -8,14 +8,12 @@ def obtener_datos():
     while linea:
         terminos = linea.split(" ")
         if (terminos[0] == "p"):
-            cantidad_prendas = terminos[2]
-            cantidad_incompatibilidades = terminos[3]
+            cantidad_prendas = int(terminos[2])
+            cantidad_incompatibilidades = int(terminos[3])
+            for i in range (1, cantidad_prendas + 1):
+                restricciones[str(i)] = set()
         elif (terminos[0] == "e"):
-            if terminos[1] not in restricciones:
-                restricciones[terminos[1]] = set()
-                restricciones[terminos[1]].add(terminos[2])
-            else:
-                restricciones[terminos[1]].add(terminos[2])
+            restricciones[terminos[1]].add(terminos[2])
         elif (terminos[0] == "n"):
             tiempos[terminos[1]] = int(terminos[2])
         linea = f.readline().strip('\n')

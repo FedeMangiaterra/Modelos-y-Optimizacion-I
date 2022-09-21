@@ -1,0 +1,14 @@
+Impresion del problema
+
+Este segundo problema es exactamente el mismo que el primero, pero con una cantidad de prendas y de restricciones mucho mayor.
+Inicialmente me sentí un poco preocupado, porque con la entrega anterior no se me habían ocurrido mejores soluciones que no fueran
+de algún tipo de fuerza bruta, cosa que con esta cantidad de prendas mayor ya sería invíable. Así que para esta entrega
+sí tuve que investigar en otros lados.
+
+Ideas de como lo van a intentar resolver
+
+Primero intenté ver que tan bien funcionaba mi solución anterior con este nuevo problema, y encontré un bug que se me había pasado
+en la primera entrega porque ahí todas las prendas tenían alguna restricción, y en este caso no. Por lo uqe tuve que hacerle un pequeño
+cambio al código para que en el diccionario de incompatibilidades aparezcan todas las prendas, y el valor sea un set vacio en aquellas
+que no tienen incompatibilidades. Después de arreglar el bug ejecuté el programa y el tiempo total fue de 281, en ese momento fue el segundo
+mejor del ranking de la página.
