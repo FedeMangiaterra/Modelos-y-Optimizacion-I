@@ -20,14 +20,15 @@ def obtener_datos():
         linea = f.readline().strip('\n')
     f.close()
     tiempos_ordenados = dict(sorted(tiempos.items(), key = lambda item: -item[1]))
-    return cantidad_prendas, cantidad_incompatibilidades, restricciones, tiempos_ordenados
+    restricciones_ordenadas = dict(sorted(restricciones.items(), key = lambda item: len(item[1])))
+    return cantidad_prendas, cantidad_incompatibilidades, restricciones_ordenadas, tiempos_ordenados
 
-def lavar_prendas(restricciones, tiempos):
+def lavar_prendas(restricciones, tiempos, diccionario_a_iterar):
     solucion = open("solucion_entrega2.txt", "w")
     numero_lavado = 0
     tiempo_total = 0
     lavadas = set()
-    for prenda in tiempos:
+    for prenda in diccionario_a_iterar:
         if prenda not in lavadas:
             numero_lavado += 1
             grupo_lavado = [prenda]
@@ -37,7 +38,7 @@ def lavar_prendas(restricciones, tiempos):
             #print(f"Lavado de prenda: {prenda}. tiempo necesario: {tiempo}")
             lavadas.add(prenda)
             tiempo_total += tiempo
-            for otra_prenda in tiempos:
+            for otra_prenda in diccionario_a_iterar:
                 if otra_prenda != prenda and otra_prenda not in excluidos_lavado and otra_prenda not in lavadas:
                     #print(f"Lavado compatible con prenda {otra_prenda}")
                     grupo_lavado.append(otra_prenda)
@@ -52,8 +53,14 @@ def lavar_prendas(restricciones, tiempos):
 def main():
     cantidad_prendas, cantidad_incompatibilidades, restricciones, tiempos = obtener_datos()
     print(f"Prendas: {cantidad_prendas}. Incompatibilidades: {cantidad_incompatibilidades}")
-    tiempo_total, cantidad_lavados = lavar_prendas(restricciones, tiempos)
-    print(f"Tiempo total consumido: {tiempo_total}. Lavados realizados: {cantidad_lavados}")
+    tiempo_total_1, cantidad_lavados = lavar_prendas(restricciones, tiempos, tiempos)
+    print(f"Metodo 1 \nTiempo total consumido: {tiempo_total_1}. Lavados realizados: {cantidad_lavados}")
+    tiempo_total_2, cantidad_lavados = lavar_prendas(restricciones, tiempos, restricciones)
+    print(f"Metodo 2 \nTiempo total consumido: {tiempo_total_2}. Lavados realizados: {cantidad_lavados}")
+    if (tiempo_total_1 < tiempo_total_2): #Vuelvo a correr el mejor metodo para que quede en el archivo de la solucion
+        lavar_prendas(restricciones, tiempos, tiempos)
+    else:
+        lavar_prendas(restricciones, tiempos, restricciones)
     
 
 
