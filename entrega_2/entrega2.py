@@ -37,7 +37,7 @@ def lavar_prendas(restricciones, tiempos, diccionario_a_iterar):
             solucion.write(f"{prenda} {numero_lavado}\n")
             #print(f"Lavado de prenda: {prenda}. tiempo necesario: {tiempo}")
             lavadas.add(prenda)
-            tiempo_total += tiempo
+            #tiempo_total += tiempo
             for otra_prenda in diccionario_a_iterar:
                 if otra_prenda != prenda and otra_prenda not in excluidos_lavado and otra_prenda not in lavadas:
                     #print(f"Lavado compatible con prenda {otra_prenda}")
@@ -45,6 +45,11 @@ def lavar_prendas(restricciones, tiempos, diccionario_a_iterar):
                     excluidos_lavado = excluidos_lavado.union(restricciones[otra_prenda])
                     lavadas.add(otra_prenda)
                     solucion.write(f"{otra_prenda} {numero_lavado}\n")
+            tiempo_max = 0
+            for miembro in grupo_lavado:
+                if tiempos[miembro] > tiempo_max:
+                    tiempo_max = tiempos[miembro]
+            tiempo_total += tiempo_max
     solucion.close()
 
     return tiempo_total, numero_lavado

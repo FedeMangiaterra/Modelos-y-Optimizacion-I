@@ -16,5 +16,5 @@ se indicaban para las dos prendas, por ejemplo si 1 era incompatible con 2 habia
 Como mi código tenía en cuenta eso, la solución que me estaba dando no era válida, y una vez arreglado ese bug tomó mucho mas tiempo para lavar
 todas las prendas: 493.
 Se me ocurrió probar iterando el diccionario con prendas pero ordenado de otra manera: En vez de iterar sobre el de tiempos ordenados de menor a mayor,
-se itera el de restricciones, ordenado de las prendas con menos restricciones a las prendas con más. Con este método mejore el resultado a 462.
+se itera el de restricciones, ordenado de las prendas con menos restricciones a las prendas con más. Con este método el resultado fue considerablemente peor.
 Igualmente, para que el modelo funcione con otros datos también, se prueban ambos métodos y se elige el mejor de los dos.
