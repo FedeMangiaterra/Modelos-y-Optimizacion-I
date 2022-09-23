@@ -18,3 +18,5 @@ todas las prendas: 493.
 Se me ocurrió probar iterando el diccionario con prendas pero ordenado de otra manera: En vez de iterar sobre el de tiempos ordenados de menor a mayor,
 se itera el de restricciones, ordenado de las prendas con menos restricciones a las prendas con más. Con este método el resultado fue considerablemente peor.
 Igualmente, para que el modelo funcione con otros datos también, se prueban ambos métodos y se elige el mejor de los dos.
+Probé ordenando las prendas según un score calculado restándole al tiempo de lavado de una prenda la suma de los tiempos de lavado de
+sus incompatibilidades, pero eso siguió sin mejorar el resultado inicial.

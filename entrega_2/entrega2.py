@@ -54,6 +54,16 @@ def lavar_prendas(restricciones, tiempos, diccionario_a_iterar):
 
     return tiempo_total, numero_lavado
 
+def obtener_scores(restricciones, tiempos, constante):
+    scores = {}
+    for prenda in restricciones:
+        suma_tiempos_incompatibles = 0
+        incompatibles = restricciones[prenda]
+        for incompatible in incompatibles:
+            suma_tiempos_incompatibles += tiempos[incompatible]
+        scores[prenda] = tiempos[prenda] - (suma_tiempos_incompatibles * constante)
+    scores = dict(sorted(scores.items(), key = lambda item: -item[1]))
+    return scores
 
 def main():
     cantidad_prendas, cantidad_incompatibilidades, restricciones, tiempos = obtener_datos()
@@ -62,6 +72,9 @@ def main():
     print(f"Metodo 1 \nTiempo total consumido: {tiempo_total_1}. Lavados realizados: {cantidad_lavados}")
     tiempo_total_2, cantidad_lavados = lavar_prendas(restricciones, tiempos, restricciones)
     print(f"Metodo 2 \nTiempo total consumido: {tiempo_total_2}. Lavados realizados: {cantidad_lavados}")
+    scores = obtener_scores(restricciones, tiempos, 0.001)
+    tiempo_total_3, cantidad_lavados = lavar_prendas(restricciones, tiempos, scores)
+    print(f"Metodo 3 \nTiempo total consumido: {tiempo_total_3}. Lavados realizados: {cantidad_lavados}")
     if (tiempo_total_1 < tiempo_total_2): #Vuelvo a correr el mejor metodo para que quede en el archivo de la solucion
         lavar_prendas(restricciones, tiempos, tiempos)
     else:
