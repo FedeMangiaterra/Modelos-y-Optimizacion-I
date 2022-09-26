@@ -20,3 +20,11 @@ se itera el de restricciones, ordenado de las prendas con menos restricciones a 
 Igualmente, para que el modelo funcione con otros datos también, se prueban ambos métodos y se elige el mejor de los dos.
 Probé ordenando las prendas según un score calculado restándole al tiempo de lavado de una prenda la suma de los tiempos de lavado de
 sus incompatibilidades, pero eso siguió sin mejorar el resultado inicial.
+No se me ocurrieron más formas de mejorar el modelo. Al igual que la vez anterior solo se me ocurre el uso de fuerza bruta, que con tantas combinaciones posibles
+es invíable. 
+
+Comentarios finales
+
+Viendo otras puntuaciones obtenidas en el ranking de la página de la materia, llego a la conclusión de que esta forma de resolver el problema
+claramente está lejos de ser la mejor, aunque también hay muchas peores (como las otras alternativas que se me ocurrieron para intentar mejorar
+mi resultado).
