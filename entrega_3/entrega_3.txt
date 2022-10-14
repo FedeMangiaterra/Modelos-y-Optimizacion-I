@@ -1,0 +1,13 @@
+Impresion del problema
+
+El tercer problema sigue siendo la misma idea, pero en este caso solo hay que plantearlo como un problema de programación lineal. Por
+eso en este caso no estuve tan desorientado al principio, como sí pasó con las dos entregas anteriores
+
+Ideas de como lo van a intentar resolver
+
+Fui planteando las diferentes partes del problema por partes, creando variables a medida que las iba necesitando para cumplir con determinado
+aspecto del ejercicio. El planteo se encuentra en el archivo Entrega_3_Modelos_I.pdf. 
+
+Comentarios finales
+
+A esta altura del cuatrimestre, ya tengo todas las herramientas como para poder plantear el problema sin demasiadas dificultades.
